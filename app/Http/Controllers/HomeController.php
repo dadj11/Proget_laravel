@@ -17,7 +17,7 @@ class HomeController extends Controller
             $query->where("label", "like", "%" . $search . "%");
         }
 
-        $articles=$query->paginate(4);
+        $articles=$query->paginate(6);
         //dd($articles->links());
        return view('home',compact('articles','search'));
     }

@@ -6,9 +6,9 @@
   <h1 class="text-3xl">Categories</h1>
   <a href="{{route('admin.categories.create')}}"><button  class="primary-button">+ Ajouter</button></a>
 </div>
-<div class="  border border-gray-300 px-6 py-8 ">
+<div class="  border border-gray-300 overflow-x-auto  rounded rounded-xl ">
 <table class="w-full">
-    <thead class=" border-b border-gray-400 ">
+    <thead class=" border-b border-gray-400 bg-gray-400 ">
         <th class="text-left  text-sm px-3 py-2">ID</th>
         <th class="text-left text-sm px-3 py-2">Nom</th>
         <th class="text-left text-sm px-3 py-2">Description</th>

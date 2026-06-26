@@ -11,7 +11,7 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 .primary-button{
-  @apply  flex gap-2 px-2 py-1 bg-green-600 hover:bg-blue-400 hover:cursor-pointer   w-full rounded rounded-lg sm:bg-blue-500 ;
+  @apply  flex gap-2 px-2 py-1  bg-green-600 hover:bg-blue-400 hover:cursor-pointer   w-full rounded rounded-lg sm:bg-blue-500 ;
 }
 .denger-button{
   @apply flex gap-2 px-2 py-1 bg-green-600  hover:bg-red-400 hover:cursor-pointer   w-full rounded rounded-lg sm:bg-red-500 ;

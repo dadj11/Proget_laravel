@@ -1,4 +1,4 @@
-   <aside class="w-1/6 h-screen text-white bg-blue-600">
+   <aside class="w-1/6 h-screen p-5 text-white bg-blue-600">
        <nav>
            <li>
                <a href="{{ route('admin.articles.index') }}"> Articles</a>
