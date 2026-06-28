@@ -22,7 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Template E-commerce</title>
+    <title> E-commerce</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 
@@ -35,10 +35,11 @@
 
             <nav class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
                 <div class="flex-1">
-                    <a class="btn btn-ghost text-xl">E-commerce Tp</a>
+                    <a class="btn btn-ghost text-xl">E-commerce </a>
                 </div>
 
                 <div class="flex-none gap-2">
+                    <a href="{{ route('admin.articles.index') }}"><button class="bg-gray-100 shadow-2xl p-2 rounded  rounded-xl hover:text-white hover:bg-black hover:skeleton ">Administration</button></a>
                     <label for="my-drawer-4" class="btn btn-ghost btn-circle">
                         <div class="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -61,7 +62,11 @@
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><a class="justify-between">Profile <span class="badge">New</span></a></li>
                             <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <form action="{{ route('auth.logout') }}" method="POST">
+                                @csrf
+                                <li><button type="submit">Logout</button></li>
+                            </form>
+
                         </ul>
                     </div>
                 </div>
@@ -69,10 +74,10 @@
 
             <main class="container mx-auto max-w-7xl p-6">
 
-                <h1 class="text-3xl font-bold py-6">Nos Articles</h1>
+                <h1 class="text-3xl font-bold py-6 ">Nos Articles</h1>
 
-                    <div class="mb-6 space-x-2">
-                           <form action="/" method="GET">
+                <div class="mb-6 space-x-2">
+                    <form action="/" method="GET">
                         <label class="input">
                             <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -81,17 +86,17 @@
                                     <path d="m21 21-4.3-4.3"></path>
                                 </g>
                             </svg>
-                            <input type="search"  name="search" value="{{$search}}" class="grow" placeholder="Rechercher un article" />
+                            <input type="search" name="search" value="{{ $search }}" class="grow"
+                                placeholder="Rechercher un article" />
                         </label>
                         <select name="select" class="select">
                             {{-- <option disabled selected>Pick a color</option> --}}
                             <option>Categorie</option>
                             <option>label</option>
                         </select>
-                        <button type="submit" class="btn btn-neutral">Rechercher</button>
-                      </form>
-                    </div>
-
+                        <button type="submit" class="btn btn-primary">Rechercher</button>
+                    </form>
+                </div>
 
                 <div class="mb-10">
                     {{ $articles->links() }}
@@ -99,11 +104,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @forelse ($articles as $article)
                         <div class="border border-gray-300 flex flex-col space-y-4 rounded-sm shadow-2xl">
-                            <figure>
+                            <figure >
                                 @if ($article->cover)
-                                    <img src="{{ asset('storage/' . $article->cover) }}" alt="BlackShoes" />
+                                    <img class="" src="{{ asset('storage/' . $article->cover) }}" alt="BlackShoes" />
                                 @else
-                                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                    <img class="h-42" src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                                         alt="BlackShoes" />
                                 @endif
                             </figure>
@@ -134,7 +139,7 @@
                     <span>Article 1</span>
                     <input type="number" placeholder="Type here" class="input" />
                 </div>
-                <form action="{{route("order.checkout")}}" method="POST">
+                <form action="{{ route('order.checkout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-primary w-full">Commander</button>
                 </form>
