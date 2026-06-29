@@ -11,14 +11,17 @@
 
 </head>
 
-<body class="flex space-x-6">
+<body class="flex">
     @include('layouts.admin.partials.sidebar')
-    <div class="flex-1 overflow-auto">
-       <main class=" flex-1 p-6">
-        @yield('content')
-       </main>
-    </div>
-    
+
+
+        <div class="flex-1 overflow-auto">
+            @include('layouts.admin.partials.header')
+            <main class=" flex-1 p-6">
+                @yield('content')
+            </main>
+        </div>
+
 
 </body>
 

@@ -4,11 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class CategorieController extends Controller
 {
+
+     public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:categorie.view', only: ['index','show']),
+            new Middleware('permission:categorie.create', only: ['create','store']),
+            new Middleware('permission:categorie.update', only: ['edit','update']),
+            new Middleware('permission:categorie.delete', only: ['destroy']),
+
+        ];
+    }
     /**
      * Display a listing of the resource.
      */

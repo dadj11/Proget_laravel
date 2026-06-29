@@ -5,12 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Staffs;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class StaffController extends Controller
-{
+{   public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:staff.view', only: ['index','show']),
+            new Middleware('permission:staff.create', only: ['create','store']),
+            new Middleware('permission:staff.update', only: ['edit','update']),
+            new Middleware('permission:staff.delete', only: ['destroy']),
+
+        ];
+    }
+
+
     /**
      * Display a listing of the resource.
      */

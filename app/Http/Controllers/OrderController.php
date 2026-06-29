@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use FedaPay\FedaPay;
+use Illuminate\Routing\Controllers\Middleware;
 use FedaPay\Transaction;
 use App\Models\Order;
 
 class OrderController extends Controller
 {
+     public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:order.view', only: ['index']),
+            new Middleware('permission:staff.update', only: ['delivery_confirm','reject','delivery_start']),
+
+
+        ];
+    }
+
     //
     public function __construct (){
        FedaPay::setApiKey(env('FEDAPAY_SECRET_KEY'));
@@ -49,9 +60,10 @@ class OrderController extends Controller
                     //enregistre la comende
                     //retourner l'acceuil
                     return to_route('home');
+                    break;
                 default:
                   dump('payement aprouver');
-                  brack;
+                  break;
             }
 
 

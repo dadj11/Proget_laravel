@@ -35,11 +35,14 @@
 
             <nav class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
                 <div class="flex-1">
-                    <a class="btn btn-ghost text-xl">E-commerce </a>
+                    <a class="btn btn-ghost text-xl" >E-commerce </a>
                 </div>
 
                 <div class="flex-none gap-2">
-                    <a href="{{ route('admin.articles.index') }}"><button class="bg-gray-100 shadow-2xl p-2 rounded  rounded-xl hover:text-white hover:bg-black hover:skeleton ">Administration</button></a>
+                    @can('staff.create')
+                        <a href="{{ route('admin.articles.index') }}"><button class="bg-gray-100 shadow-2xl p-2 rounded  rounded-xl hover:text-white hover:bg-black hover:skeleton ">Administration</button></a>
+                    @endcan
+
                     <label for="my-drawer-4" class="btn btn-ghost btn-circle">
                         <div class="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

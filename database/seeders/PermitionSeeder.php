@@ -24,14 +24,23 @@ class PermitionSeeder extends Seeder
             "article.view",
             "article.create",
             "article.update",
-            "article.delete"
+            "article.delete",
+
+            "order.view",
+            "order.create",
+            "order.update",
+
+            "staff.view",
+            "staff.create",
+            "staff.update",
+            "staff.delete",
+
+            "categorie.view",
+            "categorie.create",
+            "categorie.update",
+            "categorie.delete",
         ];
 
-         $permition_datas=[
-            ['name' => 'client'],
-             ['name' => 'delivery_person'],
-              ['name' => 'manager']
-        ];
 
         foreach($permition_names as $permition_name ){
             Permission::create( ['name' => $permition_name]);
