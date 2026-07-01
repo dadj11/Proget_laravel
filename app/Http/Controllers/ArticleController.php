@@ -23,7 +23,6 @@ class ArticleController implements HasMiddleware
             new Middleware('permission:article.create', only: ['create','store']),
             new Middleware('permission:article.update', only: ['edit','update']),
             new Middleware('permission:article.delete', only: ['destroy']),
-
         ];
     }
     public function index()

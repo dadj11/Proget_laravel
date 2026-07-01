@@ -21,12 +21,6 @@ class HomeController extends Controller
         //dd($articles->links());
        return view('home',compact('articles','search'));
     }
-    public function articleList(){
-       $articles=Article::all();
-       return view('article',compact('articles'));
-    }
-
-
 
 
 }
