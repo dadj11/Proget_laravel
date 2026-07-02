@@ -23,7 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> E-commerce</title>
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/js/app.js', 'resources/css/app.css','resources/js/carte.js'])
 </head>
 
 <body>
@@ -119,7 +119,7 @@
                                 <h2 class="card-title">{{ $article->label }}</h2>
                                 <p>{{ $article->description }}</p>
                                 <div class="card-actions justify-end">
-                                    <button class="btn btn-primary">Ajouter au panier</button>
+                                    <button class="btn btn-primary" id={{ $article->id }}>Ajouter au panier</button>
                                 </div>
                             </div>
                         </div>

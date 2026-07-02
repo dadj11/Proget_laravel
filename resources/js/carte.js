@@ -40,7 +40,7 @@ cardInst.addArticle(1)
 cardInst.removArticle(1)
 console.log(cardInst)
 
-var butons = document.querySelectorAll(".add-to-carde")
+var butons = document.querySelectorAll(".btn-primary")
 console.log(butons)
 
 butons.forEach(button => {
@@ -52,11 +52,4 @@ butons.forEach(button => {
 
 });
 
-// butons.forEach(button => {
-//     button.addEventListener('click', (e) => {
-//         cardInst.addArticle(parseInt(e.target.id))
-//         console.log(cardInst)
-//     })
 
-
-// });
